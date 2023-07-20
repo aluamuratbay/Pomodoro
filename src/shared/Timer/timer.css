@@ -1,0 +1,37 @@
+.timer {
+  position: relative;
+  min-width: 733px;
+  width: 733px;
+  height: 507px;
+  background-color: var(--timer);
+}
+
+.timer.Disabled {
+  pointer-events: none;
+}
+
+.settingsBtn {
+  position: absolute;
+  top: 70px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: auto;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.settingsIcon {
+  width: 25px;
+  height: 25px;
+}
+
+.settingsIcon path {
+  fill: var(--greyC4);
+  transition: fill 0.3s ease-in-out;
+}
+
+.settingsIcon:hover path {
+  fill: var(--grey99);
+}

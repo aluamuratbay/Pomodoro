@@ -1,0 +1,34 @@
+.timerBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.timerCounter {
+  margin: 0;
+  font-size: 150px;
+  font-weight: 200;
+  line-height: 179px;
+  color: var(--black);
+}
+
+.timerCounter.Active {
+  color: var(--red22);
+}
+
+.timerCounter.Break {
+  color: var(--green4F);
+}
+
+.taskNumber {
+  margin: 0;
+  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 17px;
+  color: var(--grey99);
+}
+
+.taskName {
+  color: var(--black);
+}

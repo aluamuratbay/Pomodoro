@@ -1,0 +1,76 @@
+.modalWrap {
+  display: flex;
+  position: fixed;
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: var(--black-transparent);
+}
+
+.modalContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 25px 0;
+  border: none;
+  border-radius: 0;
+  width: 350px;
+  min-height: 175px;
+  background-color: var(--white);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.deleteTitle {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.deleteBtn {
+  margin-bottom: 10px;
+  width: 162px;
+  height: 55px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 17px;
+  color: var(--whitePermanent);
+  background-color: var(--red22);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.deleteBtn:hover {
+  background-color: var(--red0F);
+}
+
+.cancelBtn {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 17px;
+  border-bottom: 1px solid var(--black);
+}
+
+.collapseBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}

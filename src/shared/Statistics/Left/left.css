@@ -1,0 +1,74 @@
+.leftWrap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.leftTop {
+  display: inline-block;
+  padding: 25px;
+  width: 296px;
+  height: 260px;
+  background-color: var(--dataBlock);
+}
+
+.leftName {
+  margin: 0;
+  margin-bottom: 14px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  color: var(--black);
+}
+
+.leftData {
+  margin: 0;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--black);
+}
+
+.workTime {
+  font-weight: 700;
+  color: var(--red22);
+}
+
+.leftBottom {
+  position: relative;
+  width: 296px;
+  height: 179px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  background-color: var(--dataBlock);
+}
+
+.leftBottom.disabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tomatoCount {
+  position: absolute;
+  left: 84px;
+  top: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: var(--chartLabel);
+}
+
+.tomatoCountBottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 51px;
+  color: var(--whitePermanent);
+  background-color: var(--red22);
+}

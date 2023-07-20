@@ -1,0 +1,140 @@
+.settingsContent {
+  position: relative;
+  margin: 70px auto;
+  padding: 40px 25px;
+  border: none;
+  border-radius: 0;
+  min-width: 794px;
+  height: 900px;
+  background-color: var(--white);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.settingsTitle {
+  margin: 0;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 25px;  
+}
+
+.settingsDivider {
+  margin-bottom: 25px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--greyC4);
+}
+
+.settingsName {
+  margin: 0;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  font-size: 20px;
+  line-height: 17px;
+  font-weight: 500;
+}
+
+.settingsDescr {
+  margin: 0;
+  margin-bottom: 16px;
+  margin-left: 30px;
+  max-width: 452px;
+  color: var(--black36);
+}
+
+.settingsLabel {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 25px;
+  margin-left: 30px;
+}
+
+.settingsInput {
+  padding-left: 5px;
+  border: 1px solid var(--grey74);
+  border-radius: 4px;
+  width: 120px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 17px;
+  background-color: transparent;
+}
+
+.settingsMeasure {
+  margin-bottom: 5px;
+  font-size: 13px;
+  line-height: 12px;
+  color: var(--grey99);
+} 
+
+.saveBtn {
+  margin-left: 30px;
+  margin-right: 40px;
+  padding: 20px 50px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 17px;
+  color: var(--whitePermanent);
+  background-color: var(--green4F);
+}
+
+.saveBtn:hover {
+  background-color: var(--green41);
+}
+
+.cancelBtnSettings {
+  padding: 20px 50px;
+  border: 2px solid var(--greyC4);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 17px;
+  color: var(--greyC4);
+  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.cancelBtnSettings:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.toggleWrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.toggle {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+  width: 50px;
+  height: 25px;
+  border: 1px solid var(--grey99);
+  border-radius: 40px;
+  background-color: transparent;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.indicator {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: var(--greyC4);
+  border-radius: 50%;
+  transform: scale(0.9);
+  transition: 0.3s;
+}
+
+.toggle.active .indicator {
+  background: var(--green4F);
+  left: 26px;
+}

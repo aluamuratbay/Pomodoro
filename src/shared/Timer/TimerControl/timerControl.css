@@ -1,0 +1,62 @@
+.timerControl {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.primaryBtn {
+  padding: 19px 50px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 17px;
+  color: var(--whitePermanent);
+  background-color: var(--green4F);
+}
+
+.primaryBtn:hover {
+  background-color: var(--green41);
+}
+
+.secondaryBtn {
+  padding: 19px 50px;
+  border: 2px solid var(--greyC4);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 17px;
+  color: var(--greyC4);
+  pointer-events: none;
+}
+
+.secondaryBtn.Active,
+.secondaryBtn.Break {
+  pointer-events: auto;
+  border-color: var(--red22);;
+  color: var(--red22);
+}
+
+.secondaryBtn:hover {
+  color: var(--whitePermanent);
+  background-color: var(--red22);
+}
+
+.incBtn {
+  position: absolute;
+  top: 191px;
+  right: 102px;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background-color: var(--timerComponent);
+  background-image: url('../../../img/inc.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.incBtn.Default {
+  pointer-events: auto;
+}
+
+.incBtn:hover {
+  background-color: var(--green41);
+}

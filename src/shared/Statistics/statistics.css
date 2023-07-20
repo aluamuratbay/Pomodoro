@@ -1,0 +1,26 @@
+.statsWrap {
+  position: relative;
+  margin: 0 auto;
+}
+
+.statsTitle {
+  margin: 0;
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+}
+
+.statsTop {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.statsSelect {
+  position: absolute;
+  top: -12px;
+  right: 0px;
+  width: 370px;
+  height: 55px;
+}

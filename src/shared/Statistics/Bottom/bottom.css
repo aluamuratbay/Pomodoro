@@ -1,0 +1,66 @@
+.bottomList {
+  display: flex;
+  gap: 32px;
+}
+
+.bottomItem {
+  position: relative;
+  padding: 25px;
+  width: 405px;
+  height: 179px;
+  background-color: var(--dataBlock);
+}
+
+.focusActive {
+  background-color: var(--orangeA9);
+}
+
+.focusIconActive path {
+  stroke: var(--orange35);
+}
+
+.pauseActive {
+  background-color: var(--violetFE);
+}
+
+.pauseIconActive path {
+  stroke: var(--violetD7);
+}
+
+.stopActive {
+  background-color: var(--blueFF);
+}
+
+.stopIconActive  path {
+  stroke: var(--blueD7);
+}
+
+.bottomTitle {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  color: var(--black);
+}
+
+.bottomTitle.active {
+  color: var(--blackPermanent);
+}
+
+.bottomData {
+  font-size: 64px;
+  line-height: 76px;
+  color: var(--black);
+}
+
+.bottomData.active {
+  color: var(--blackPermanent);
+}
+
+.bottomIcon {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+

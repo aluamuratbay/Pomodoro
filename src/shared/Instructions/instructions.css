@@ -1,0 +1,36 @@
+.instructions {
+  display: inline-block;
+  margin-bottom: 25px;
+  max-width: 530px;
+}
+
+.instructionsTitle {
+  margin: 0;
+  margin-bottom: 3px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+}
+
+.instructionsItem {
+  position: relative;
+  padding-left: 15px;
+  font-size: 16px;
+  line-height: 33px;
+}
+
+.instructionsItem::before {
+  content: '';
+  position: absolute;
+  top: 44%;
+  left: 0;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background-color: var(--red0F);
+}
+
+.instructionsItem:last-child::before {
+  top: 14%;
+}

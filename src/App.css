@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@font-face {
+  font-family: "SF UI Display";
+  src: local("SF UI Display-Regular"),
+    url("./fonts/SF-UI-DisplayRegular.woff2") format("woff2"),
+    url("./fonts/SF-UI-DisplayRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  src: local("SF UI Display-Light"),
+    url("./fonts/SF-UI-DisplayLight.woff2") format("woff2"),
+    url("./fonts/SF-UI-DisplayLight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  src: local("SF UI Display-Medium"),
+    url("./fonts/SF-UI-DisplayMedium.woff2") format("woff2"),
+    url("./fonts/SF-UI-DisplayMedium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  src: local("SF UI Display-Bold"),
+    url("./fonts/SF-UI-DisplayBold.woff2") format("woff2"),
+    url("./fonts/SF-UI-DisplayBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  src: local("SF UI Display-Thin"),
+    url("./fonts/SF-UI-DisplayThin.woff2") format("woff2"),
+    url("./fonts/SF-UI-DisplayThin.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  --white: #FFF;
+  --black: #333;
+  --black-transparent: rgba(0,0,0,0.5);
+  --black-transparent07: rgba(0, 0, 0, 0.07);
+  --black08: #808080;
+  --black36: #2A2A36;
+  --red22: #DC3E22;
+  --red0F: #B7280F;
+  --red79: #EA8A79;
+  --red5D : #EE735D;
+  --green4F: #A8B64F;
+  --green41: #899441;
+  --green17: #4CBB17;
+  --grey99:  #999;
+  --greyF4: #F4F4F4;
+  --greyC4: #C4C4C4;
+  --greyE4: #E4E4E4;
+  --greyEC: #ECECEC;
+  --greyCD: #CDCDCD;
+  --greyDE: #DEDEDE;
+  --grey74: #747474;
+  --orangeA9: #FFDDA9;
+  --orange35: #FFAE35;
+  --violetFE: #DFDCFE;
+  --violetD7: #9C97D7;
+  --blueFF: #C5F1FF;
+  --blueD7: #7FC2D7;
+  --blue96: #0096FF;
+
+  --blackPermanent: #333;
+  --whitePermanent: #FFF;
+  --appBody: #FFF;
+  --header: #FFF;
+  --timer: #F4F4F4;
+  --timerComponent: #C4C4C4;
+  --dataBlock: #F4F4F4;
+  --selectHover: #E4E4E4;
+  --chartBottom: #ECECEC;
+  --chartLabel: #999;
+
+  padding: 0;
+  margin: 0;
+  background-color: var(--appBody);
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'SF UI Display', serif;
+  font-weight: 400;
+  color: var(--black);
+}
+
+body.dark {
+  --white: #333;
+  --black: #FFF;
+  --black36: #FFF;
+
+  --appBody: #121212;
+  --header: #1F1F1F;
+  --timer: #1D1D1D;
+  --timerComponent: #333;
+  --dataBlock: #1E1E1E;
+  --selectHover: #999;
+  --chartBottom: #333;
+  --chartLabel: #FFF;
+}
+
+* {
+  color: var(--black);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in-out;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+.appLeft {
+  margin-right: 10px;
+  min-width: 530px;
+}
+
+@media(max-width: 1400px) {
+  .App {
+    overflow-x: auto;
+  }
+} 
+
+/*
+:root {
+  --white: #fff;
+  --black: #333;
+  --black-transparent: rgba(0,0,0,0.5);
+  --black-transparent07: rgba(0, 0, 0, 0.07);
+  --black08: #808080;
+  --red22: #DC3E22;
+  --red0F: #B7280F;
+  --red79: #EA8A79;
+  --red5D : #EE735D;
+  --green4F: #A8B64F;
+  --green41: #899441;
+  --grey99:  #999;
+  --greyF4: #F4F4F4;
+  --greyC4: #C4C4C4;
+  --greyE4: #E4E4E4;
+  --greyEC: #ECECEC;
+  --greyCD: #CDCDCD;
+  --greyDE: #DEDEDE;
+  --orangeA9: #FFDDA9;
+  --orange35: #FFAE35;
+  --violetFE: #DFDCFE;
+  --violetD7: #9C97D7;
+  --blueFF: #C5F1FF;
+  --blueD7: #7FC2D7;
+}
+*/

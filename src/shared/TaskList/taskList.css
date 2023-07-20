@@ -1,0 +1,11 @@
+.listContainer {
+  display: inline-block;
+  max-width: 370px;
+}
+
+.totalTime {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 17px;
+  color: var(--grey99);
+}
