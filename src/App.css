@@ -155,32 +155,3 @@ input {
     overflow-x: auto;
   }
 } 
-
-/*
-:root {
-  --white: #fff;
-  --black: #333;
-  --black-transparent: rgba(0,0,0,0.5);
-  --black-transparent07: rgba(0, 0, 0, 0.07);
-  --black08: #808080;
-  --red22: #DC3E22;
-  --red0F: #B7280F;
-  --red79: #EA8A79;
-  --red5D : #EE735D;
-  --green4F: #A8B64F;
-  --green41: #899441;
-  --grey99:  #999;
-  --greyF4: #F4F4F4;
-  --greyC4: #C4C4C4;
-  --greyE4: #E4E4E4;
-  --greyEC: #ECECEC;
-  --greyCD: #CDCDCD;
-  --greyDE: #DEDEDE;
-  --orangeA9: #FFDDA9;
-  --orange35: #FFAE35;
-  --violetFE: #DFDCFE;
-  --violetD7: #9C97D7;
-  --blueFF: #C5F1FF;
-  --blueD7: #7FC2D7;
-}
-*/

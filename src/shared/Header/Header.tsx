@@ -43,17 +43,3 @@ export function Header() {
     </header>
   );
 }
-
-/*
- <div className={ darkTheme ? "toggle active" : "toggle"} onClick={() => setDarkTheme(!darkTheme)}>
-    <i className="indicator"></i>
-  </div>
-
-    const [darkTheme, setDarkTheme] = useState(false);
-  
-  const setTheme = () => {
-    setDarkTheme(!darkTheme);
-    document.body.classList.toggle('dark');
-  }
-
-*/

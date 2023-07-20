@@ -92,19 +92,3 @@ export function Timer() {
     </div>
   )
 }
-
-/*
-useEffect(() => {
-    for(let i = 0; i < statisticsData.length; i++) {
-      for(let j = 0; j < 7; j++) {
-        if(statisticsData[i].date === thisWeek[j].date) {
-          thisWeek[j].data = statisticsData[i].data;
-        } else if(statisticsData[i].date === lastWeek[j].date) {
-          lastWeek[j].data = statisticsData[i].data;
-        } else if(statisticsData[i].date === twoWeeksAgo[j].date) {
-          twoWeeksAgo[j].data = statisticsData[i].data;
-        } 
-      }
-    } 
-  });
-*/
