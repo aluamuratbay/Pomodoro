@@ -1,6 +1,6 @@
 import './task.css';
 import { useDispatch } from 'react-redux';
-import { updateTask } from '../../../reducer';
+import { updateTask } from '../../../store/reducer';
 import { Menu } from './Menu';
 import { ChangeEvent, useRef, useState } from 'react';
 

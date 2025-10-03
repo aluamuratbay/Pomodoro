@@ -2,7 +2,8 @@ import './settings.css';
 import { CrossIcon } from '../../Icons';
 import { Dispatch, SetStateAction } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, updateBreakFrequency, updateLongBreak, updateNotifications, updateShortBreak, updateTomatoDuration } from '../../../reducer';
+import { RootState, updateBreakFrequency, updateLongBreak, updateNotifications, updateShortBreak, updateTomatoDuration } from '../../../store/reducer';
+import { formatMessage } from 'devextreme/localization';
 
 interface IDeleteItem {
   isOpen: boolean;
@@ -47,52 +48,52 @@ export function Settings({ isOpen, setIsOpen }: IDeleteItem) {
       <div className='modalWrap'>
         <div className='settingsContent'>
           <h1 className="settingsTitle">
-            Настройки таймера
+            { formatMessage('Timer settings') }
           </h1>
         
           <div className='settingsBody'>
             <div className='settingsDivider'></div>
-            <h2 className='settingsName'>Продолжительность помидора</h2>
-            <p className='settingsDescr'>Укажите предпочитаюмую продолжительность одного помидора</p>
+            <h2 className='settingsName'>{ formatMessage('Pomodoro Duration') }</h2>
+            <p className='settingsDescr'>{ formatMessage('Please indicate your preferred duration of one pomodoro') }</p>
             <label className='settingsLabel'>
               <input type="number" className='settingsInput' id='tomatoDuration' defaultValue={tomatoDuration} />
-              <span className='settingsMeasure'>в минутах</span>
+              <span className='settingsMeasure'>{ formatMessage('in minutes') }</span>
             </label>
           
-            <h2 className='settingsName'>Продолжительность короткого перерыва</h2>
-            <p className='settingsDescr'>Укажите продолжительность короткого перерыва после каждого помидора</p>
+            <h2 className='settingsName'>{ formatMessage('Duration of a short break') }</h2>
+            <p className='settingsDescr'>{ formatMessage('Specify the duration of the short break after each pomodoro') }</p>
             <label className='settingsLabel'>
               <input type="number" className='settingsInput' id='shortBreak' defaultValue={shortBreak} />
-              <span className='settingsMeasure'>в минутах</span>
+              <span className='settingsMeasure'>{ formatMessage('in minutes') }</span>
             </label>
 
-            <h2 className='settingsName'>Продолжительность длинного перерыва</h2>
-            <p className='settingsDescr'>Укажите продолжительность длинного перерыва после каждого {breakFrequency} помидора</p>
+            <h2 className='settingsName'>{ formatMessage('Duration of a long break') }</h2>
+            <p className='settingsDescr'>{ formatMessage('Specify the duration of the long break after each') } {breakFrequency} { formatMessage("pomodoros") }</p>
             <label className='settingsLabel'>
               <input type="number" className='settingsInput' id='longBreak' defaultValue={longBreak} />
-              <span className='settingsMeasure'>в минутах</span>
+              <span className='settingsMeasure'>{ formatMessage('in minutes') }</span>
             </label>
 
-            <h2 className='settingsName'>Частота длинных перерывов</h2>
-            <p className='settingsDescr'>Укажите количество помидоров через которых будут срабатывать длинные перерывы</p>
+            <h2 className='settingsName'>{ formatMessage('Frequency of long breaks') }</h2>
+            <p className='settingsDescr'>{ formatMessage('Specify the number of pomodoros after which long breaks will be triggered') }</p>
             <label className='settingsLabel'>
               <input type="number" className='settingsInput' id='breakFrequency' defaultValue={breakFrequency} />
-              <span className='settingsMeasure'>в помидорах</span>
+              <span className='settingsMeasure'>{ formatMessage('in pomodoros') }</span>
             </label>
 
             <div className='settingsDivider'></div>
-            <h2 className='settingsName'>Уведомления по окончанию таймера</h2>
+            <h2 className='settingsName'>{ formatMessage('Notifications when the timer ends') }</h2>
 
             <div className="toggleWrap">
-              <p className='settingsDescr'>Выберите, если хотите получать браузерные уведомления по окончанию таймера</p>
+              <p className='settingsDescr'>{ formatMessage('Select if you want to receive browser notifications when the timer ends') }</p>
               <div className={ notifications ? "toggle active" : "toggle"} onClick={() => dispatch(updateNotifications())}>
                 <i className="indicator"></i>
               </div>
             </div>
           </div>
 
-          <button className="saveBtn" onClick={() => handleClick()}>Сохранить</button>
-          <button className="cancelBtnSettings" onClick={() => setIsOpen(false)}>Отмена </button>
+          <button className="saveBtn" onClick={() => handleClick()}>{ formatMessage('Save') }</button>
+          <button className="cancelBtnSettings" onClick={() => setIsOpen(false)}>{ formatMessage('Cancel') }</button>
           <button className='collapseBtn'  onClick={() => setIsOpen(false)}>
             <CrossIcon />
           </button>

@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
-import { IWeekStats } from '../../../reducer';
+import { IWeekStats } from '../../../store/reducer';
 import './chart.css';
+import { formatMessage } from 'devextreme/localization';
 
 interface IChart {
   currentWeek: IWeekStats[];
@@ -38,13 +39,13 @@ export function Chart({ currentWeek, currentDay, setCurrentDay }: IChart) {
   return (
     <div className='chartWrap'>
       <div className='divider'></div>
-      <span className='sideLabel'>1 ч 40 мин</span>
+      <span className='sideLabel'>1 { formatMessage('h') } 40 { formatMessage("min") }</span>
       <div className='divider'></div>
-      <span className='sideLabel'>1 ч 15 мин</span>
+      <span className='sideLabel'>1 { formatMessage('h') } 15 { formatMessage("min") }</span>
       <div className='divider'></div>
-      <span className='sideLabel'>50 мин</span>
+      <span className='sideLabel'>50 { formatMessage("min") }</span>
       <div className='divider'></div>
-      <span className='sideLabel'>25 мин</span>
+      <span className='sideLabel'>25 { formatMessage("min") }</span>
 
       <div className="barsList">
         <button className={ index === 0 ? "barsItem selected" : "barsItem"} onClick={() => handleClick(0)} style={getStyles(0)}></button>
@@ -58,13 +59,13 @@ export function Chart({ currentWeek, currentDay, setCurrentDay }: IChart) {
 
       <div className='bottomLabel'>
         <ul className="labelList">
-          <li className={ index === 0 ? "labelItem selected" : "labelItem"}>Пн</li>
-          <li className={ index === 1 ? "labelItem selected" : "labelItem"}>Вт</li>
-          <li className={ index === 2 ? "labelItem selected" : "labelItem"}>Ср</li>
-          <li className={ index === 3 ? "labelItem selected" : "labelItem"}>Чт</li>
-          <li className={ index === 4 ? "labelItem selected" : "labelItem"}>Пт</li>
-          <li className={ index === 5 ? "labelItem selected" : "labelItem"}>Сб</li>
-          <li className={ index === 6 ? "labelItem selected" : "labelItem"}>Вс</li>
+          <li className={ index === 0 ? "labelItem selected" : "labelItem"}>{ formatMessage('Mon') }</li>
+          <li className={ index === 1 ? "labelItem selected" : "labelItem"}>{ formatMessage('Tue') }</li>
+          <li className={ index === 2 ? "labelItem selected" : "labelItem"}>{ formatMessage('Wed') }</li>
+          <li className={ index === 3 ? "labelItem selected" : "labelItem"}>{ formatMessage('Thu') }</li>
+          <li className={ index === 4 ? "labelItem selected" : "labelItem"}>{ formatMessage('Fri') }</li>
+          <li className={ index === 5 ? "labelItem selected" : "labelItem"}>{ formatMessage('Sat') }</li>
+          <li className={ index === 6 ? "labelItem selected" : "labelItem"}>{ formatMessage('Sun') }</li>
         </ul>
       </div>
     </div>

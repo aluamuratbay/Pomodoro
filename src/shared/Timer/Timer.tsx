@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TimerBody } from './TimerBody';
 import { TimerControl } from './TimerControl';
 import { TimerHeader } from './TimerHeader';
-import { IData, ITimer, IWeekStats, RootState, addLastWeek, addStatisticsData, addThisWeek, addTwoWeeksAgo, clearData, updateTime, updateTimerState } from '../../reducer';
+import { IData, ITimer, IWeekStats, RootState, addLastWeek, addStatisticsData, addThisWeek, addTwoWeeksAgo, clearData, updateTime, updateTimerState } from '../../store/reducer';
 import { ITaskList } from '../TaskList';
 import { useEffect, useState } from 'react';
 import { SettingsIcon } from '../Icons';
 import { createPortal } from 'react-dom';
 import { Settings } from './Settings';
+import { formatMessage } from 'devextreme/localization';
 
 export const node = document.getElementById('root') as HTMLElement;
 
@@ -74,10 +75,10 @@ export function Timer() {
       </button>
 
       <TimerHeader 
-        name={currentTask ? currentTask.name : 'Добавьте задачку'} 
+        name={currentTask ? currentTask.name : formatMessage('Add Task')} 
         timerState={timer.timerState} />
       <TimerBody 
-        name={currentTask ? currentTask.name : 'Добавьте задачку'} 
+        name={currentTask ? currentTask.name : formatMessage('Add Task')} 
         timerState={timer.timerState} />
       <TimerControl 
         id={currentTask ? currentTask.id : ''} 

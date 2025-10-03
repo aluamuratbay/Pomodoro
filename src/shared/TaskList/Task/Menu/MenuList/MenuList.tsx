@@ -1,11 +1,12 @@
 import './menuList.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { DecreaseIcon, DeleteIcon, EditIcon, IncreaseIcon } from '../../../../Icons';
-import { RootState, updateTask } from '../../../../../reducer';
+import { RootState, updateTask } from '../../../../../store/reducer';
 import { createPortal } from 'react-dom';
 import { DeleteItem } from './DeleteItem';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { node } from '../../../../Timer';
+import { formatMessage } from 'devextreme/localization';
 
 
 interface IMenuList {
@@ -41,28 +42,28 @@ export function MenuList({ id, setIsEditable, setIsDropdownOpen }: IMenuList) {
         <li>
           <button  className='menuItem' onClick={ handleIncClick }>
             <IncreaseIcon />
-            Увеличить
+            { formatMessage('Increase') }
           </button>
         </li>
 
         <li>
           <button  className='menuItem' onClick={ handleDecClick }>
             <DecreaseIcon />
-            Уменьшить
+            { formatMessage('Decrease') }
           </button>
         </li> 
 
         <li>
           <button  className='menuItem' onClick={ handleEditClick }>
             <EditIcon />
-            Редактировать
+            { formatMessage('Edit') }
           </button>
         </li>
 
         <li>
           <button className={timerState === 'Active' || timerState === 'Break' ? 'menuItem disabled' : 'menuItem' } onClick={() => { setIsDeleteOpen(true) }}>
             <DeleteIcon />
-            Удалить
+            { formatMessage('Delete') }
           </button>
         </li>
       </ul>

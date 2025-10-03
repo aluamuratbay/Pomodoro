@@ -1,7 +1,8 @@
 import './timerBody.css';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../reducer';
+import { RootState } from '../../../store/reducer';
 import { ITaskList } from '../../TaskList';
+import { formatMessage } from 'devextreme/localization';
 
 interface ITimerBody {
   name: string;
@@ -42,7 +43,7 @@ export function TimerBody({ name, timerState }: ITimerBody) {
   return (
     <div className='timerBody'>
       <p className={`timerCounter ${timerState}`}>{ formatTime(time) }</p>
-      <p className='taskNumber'>Задача {taskNumber} - <span className='taskName'>{ name }</span></p>
+      <p className='taskNumber'>{ formatMessage('Task') } {taskNumber} - <span className='taskName'>{ name }</span></p>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import './timerHeader.css';
-import { RootState } from '../../../reducer';
+import { RootState } from '../../../store/reducer';
+import { formatMessage } from 'devextreme/localization';
 
 interface ITimerHeader {
   name: string;
@@ -13,7 +14,7 @@ export function TimerHeader({ name, timerState }: ITimerHeader) {
   return (
     <div className={`timerHeader ${timerState}`}>
       <p className='timerTask'>{ name }</p>
-      <p className='timerPomidor'>{ timerState === 'Break' ? 'Перерыв' : 'Помидор' } {tomatoCount + 1} </p>
+      <p className='timerPomidor'>{ formatMessage(timerState === 'Break' ? 'Break' : 'Pomodoro') } {tomatoCount + 1} </p>
     </div>
   )
 }

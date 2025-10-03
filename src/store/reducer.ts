@@ -1,6 +1,6 @@
 import { ActionCreator, AnyAction, Reducer } from "redux";
 import { nanoid } from "nanoid";
-import { ITaskList } from "./shared/TaskList";
+import { ITaskList } from "../shared/TaskList";
 const ms = require("ms");
 const thisDay = new Date().getDay();
 const moment = require('moment');

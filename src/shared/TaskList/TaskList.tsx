@@ -1,8 +1,9 @@
 import './taskList.css';
 import { Task } from './Task';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../reducer';
+import { RootState } from '../../store/reducer';
 import { useEffect, useState } from 'react';
+import { formatMessage } from 'devextreme/localization';
 
 export interface ITaskList {
   id: string;
@@ -50,10 +51,10 @@ export function TaskList() {
       minutes =  Math.floor(ms / 1000 / 60) % 60;
       const hours = Math.floor(ms / 1000 / 60 / 60);
 
-      return `${hours} час ${minutes} мин`;
+      return `${hours} ${ formatMessage('hours') } ${minutes} ${ formatMessage('min') }`;
     } 
 
-    return `${minutes} мин`;
+    return `${minutes} ${ formatMessage('min') }`;
   }
   
   return (

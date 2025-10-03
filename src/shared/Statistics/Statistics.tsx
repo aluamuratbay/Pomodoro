@@ -4,8 +4,9 @@ import { Chart } from './Chart';
 import { Left } from './Left';
 import { Bottom } from './Bottom';
 import { useSelector } from 'react-redux';
-import { IWeekStats, RootState } from '../../reducer';
+import { IWeekStats, RootState } from '../../store/reducer';
 import { useState } from 'react';
+import { formatMessage } from 'devextreme/localization';
 
 export function Statistics() {
   const thisWeek = useSelector<RootState, IWeekStats[]>(state => state.thisWeek);
@@ -24,9 +25,9 @@ export function Statistics() {
   const [currentDay, setCurrentDay] = useState(currentWeek[thisDay]);
 
   const options = [
-    { value: 'thisWeek', label: 'Эта неделя' },
-    { value: 'lastWeek', label: 'Прошедшая неделя' },
-    { value: 'twoWeeksAgo', label: '2 недели назад' },
+    { value: 'thisWeek', label: formatMessage('This week') },
+    { value: 'lastWeek', label: formatMessage('Last week') },
+    { value: 'twoWeeksAgo', label: formatMessage('2 weeks ago') },
   ];
   const handleChange = (selectedOption: SingleValue<{ value: string; label: string;}>) => {
     if(selectedOption?.value === 'thisWeek') {
@@ -43,7 +44,7 @@ export function Statistics() {
 
   return (
     <div className='statsWrap'>
-      <h1 className='statsTitle'>Ваша активность</h1>
+      <h1 className='statsTitle'>{ formatMessage('Your activity') }</h1>
       <div className="statsSelect">
         <Select 
           styles={

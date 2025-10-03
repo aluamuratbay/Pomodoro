@@ -2,7 +2,8 @@ import './deleteItem.css';
 import { Dispatch, SetStateAction } from 'react';
 import { CrossIcon } from '../../../../../Icons';
 import { useDispatch } from 'react-redux';
-import { deleteTask } from '../../../../../../reducer';
+import { deleteTask } from '../../../../../../store/reducer';
+import { formatMessage } from 'devextreme/localization';
 
 interface IDeleteItem {
   id: string;
@@ -23,9 +24,9 @@ export function DeleteItem({ id, isOpen, setIsOpen }: IDeleteItem) {
     {isOpen &&
       <div className='modalWrap'>
       <div className='modalContent'>
-        <h2 className='deleteTitle'>Удалить задачу?</h2>
-        <button className='deleteBtn' onClick={handleClick}>Удалить</button>
-        <button className='cancelBtn' onClick={() => setIsOpen(false)}>Отмена</button>
+        <h2 className='deleteTitle'>{ formatMessage('Delete Task') }?</h2>
+        <button className='deleteBtn' onClick={handleClick}>{ formatMessage('Delete') }</button>
+        <button className='cancelBtn' onClick={() => setIsOpen(false)}>{ formatMessage('Cancel') }</button>
         <button className='collapseBtn'  onClick={() => setIsOpen(false)}>
           <CrossIcon />
         </button>

@@ -1,7 +1,8 @@
 import './left.css';
 import tomato from '../../../img/tomato.svg';
 import tomato2 from '../../../img/tomato2.svg';
-import { IWeekStats } from '../../../reducer';
+import { IWeekStats } from '../../../store/reducer';
+import { formatMessage } from 'devextreme/localization';
 
 interface ILeft {
   currentDay: IWeekStats;
@@ -21,22 +22,22 @@ export function formatTime(ms: number) {
 }
 
 export function Left({ currentDay }: ILeft) {
-  const weekDays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  const weekDays = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
   const date = new Date(currentDay.date);
 
   return (
     <div className='leftWrap'>
       <div className='leftTop'>
-        <h2 className='leftName'> {weekDays[date.getDay()]} </h2>
+        <h2 className='leftName'> { formatMessage(weekDays[date.getDay()]) } </h2>
             
         { currentDay.data.workTime ? 
           <p className='leftData'>
-            Вы работали над задачами в течение 
+            { formatMessage('You have been working on the tasks for') }
             <span className='workTime'> { 
-              formatTime(currentDay.data.workTime).hours ? `${formatTime(currentDay.data.workTime).hours} часов ${formatTime(currentDay.data.workTime).minutes} минут` : `${formatTime(currentDay.data.workTime).minutes} минуты`} 
+              formatTime(currentDay.data.workTime).hours ? `${formatTime(currentDay.data.workTime).hours} ${ formatMessage('hours') } ${formatTime(currentDay.data.workTime).minutes} ${ formatMessage('minute') }` : `${formatTime(currentDay.data.workTime).minutes} ${ formatMessage('minutes') }`} 
             </span>
           </p> : 
-          <p className="leftData">Нет данных</p>
+          <p className="leftData">{ formatMessage('No data') }</p>
         }
       </div>
 
@@ -46,7 +47,7 @@ export function Left({ currentDay }: ILeft) {
               <img src={tomato2} alt=''/> 
               x {currentDay.data.tomatoCount} 
             </span>
-            <div className='tomatoCountBottom'>{currentDay.data.tomatoCount} помидора</div>
+            <div className='tomatoCountBottom'>{currentDay.data.tomatoCount} { formatMessage('pomodoros') }</div>
           </div>
           : 
           <div className='leftBottom disabled'>

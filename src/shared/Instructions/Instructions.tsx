@@ -1,24 +1,25 @@
+import { formatMessage } from 'devextreme/localization';
 import './instructions.css';
 
 export function Instructions() {
   return (
     <div className="instructions">
-      <h2 className="instructionsTitle">Ура! Теперь можно начать работать:</h2>
+      <h2 className="instructionsTitle">{ formatMessage("Hooray! Now we can start working") }:</h2>
       <ul className="instructionsList">
         <li className="instructionsItem">
-          Выберите категорию и&nbsp;напишите название текущей задачи
+          { formatMessage('Select a category and write the name of the current task') }
         </li>
         <li className="instructionsItem">
-          Запустите таймер (&laquo;помидор&raquo;)
+          { formatMessage('Start the timer (pomodoro)') }
         </li>
         <li className="instructionsItem">
-          Работайте пока &laquo;помидор&raquo; не&nbsp;прозвонит
+          { formatMessage('Work until the «pomodoro» rings') }
         </li>
         <li className="instructionsItem">
-          Сделайте короткий перерыв (3-5&nbsp;минут)
+          { formatMessage('Take a short break (3-5 minutes)') }
         </li>
         <li className="instructionsItem">
-          Продолжайте работать &laquo;помидор&raquo; за&nbsp;&laquo;помидором&raquo;, пока задача не&nbsp;будут выполнена. Каждые 4&nbsp;&laquo;помидора&raquo; делайте длинный перерыв (15-30&nbsp;минут).
+          { formatMessage('Continue working «pomodoro» after «pomodoro» until the task is completed. Take a long break (15-30 minutes) every 4 Pomodoros') }.
         </li>
       </ul>
     </div>

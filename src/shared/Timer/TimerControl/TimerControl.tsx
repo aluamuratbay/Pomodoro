@@ -1,12 +1,13 @@
 import './timerControl.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { ITimer, RootState, increasePauseTime, increaseStopCount, increaseTomatoCount, increaseWorkTime, updateTask, updateTime, updateTimerState } from '../../../reducer';
+import { ITimer, RootState, increasePauseTime, increaseStopCount, increaseTomatoCount, increaseWorkTime, updateTask, updateTime, updateTimerState } from '../../../store/reducer';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Notification } from './Notification';
 import { ITaskList } from '../../TaskList';
 import sound from '../../../assests/timer-finish.mp3';
 import { createPortal } from 'react-dom';
 import { node } from '../../Timer';
+import { formatMessage } from 'devextreme/localization';
 
 interface ITimerControl {
   id: string;
@@ -20,15 +21,15 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
   const dispatch = useDispatch();
   const timer = useSelector<RootState, ITimer>(state => state.timer);
   const tomatoCount = useSelector<RootState, number>(state => state.data.tomatoCount);
-  const [primaryBtn, setPrimaryBtn] = useState('Старт');
-  const [secondaryBtn, setSecondaryBtn] = useState('Стоп');
+  const [primaryBtn, setPrimaryBtn] = useState('Start');
+  const [secondaryBtn, setSecondaryBtn] = useState('Stop');
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const interval = useRef<ReturnType<typeof setInterval>>();
   const pauseInterval = useRef<ReturnType<typeof setInterval>>();
 
   const startBreak = useCallback(() => {
-    setPrimaryBtn('Пауза');
-    setSecondaryBtn('Пропустить');
+    setPrimaryBtn('Pause');
+    setSecondaryBtn('Skip');
     
     if((tomatoCount + 1) % (timer.breakFrequency) === 0) {
       dispatch(updateTime(`${timer.longBreak}m`));
@@ -47,8 +48,8 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
   }, [dispatch, tomatoCount, timer]);
 
   const resetTimer = useCallback(() => {
-    setPrimaryBtn('Старт');
-    setSecondaryBtn('Стоп');
+    setPrimaryBtn('Start');
+    setSecondaryBtn('Stop');
 
     if(amount === 1 && started === true) dispatch(updateTask(id, 'done'));
     dispatch(updateTime(`${timer.tomatoDuration}m`));
@@ -67,8 +68,8 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
     switch(timerState) {
       case 'Default': 
         dispatch(updateTimerState('Active'));
-        setPrimaryBtn('Пауза');
-        setSecondaryBtn('Стоп');
+        setPrimaryBtn('Pause');
+        setSecondaryBtn('Stop');
 
         if(amount > 1) { dispatch(updateTask(id, 'dec')); }
         else { dispatch(updateTask(id, 'started')); }
@@ -83,9 +84,9 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
         break;
 
       case 'Active': 
-        if(primaryBtn === 'Пауза') {
-          setPrimaryBtn('Продолжить');
-          setSecondaryBtn('Сделано')
+        if(primaryBtn === 'Pause') {
+          setPrimaryBtn('Resume');
+          setSecondaryBtn('Done');
           
           if(!pauseInterval.current) {
             pauseInterval.current = setInterval(() => {
@@ -96,8 +97,8 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
           clearInterval(interval.current);
           interval.current = undefined;
         } else {
-          setPrimaryBtn('Пауза');
-          setSecondaryBtn('Стоп');
+          setPrimaryBtn('Pause');
+          setSecondaryBtn('Stop');
           
           clearInterval(pauseInterval.current);
           pauseInterval.current = undefined;
@@ -113,9 +114,9 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
         break;
       
       case 'Break':
-        if(primaryBtn === 'Пауза') {
-          setPrimaryBtn('Продолжить');
-          setSecondaryBtn('Пропустить')
+        if(primaryBtn === 'Pause') {
+          setPrimaryBtn('Resume');
+          setSecondaryBtn('Skip');
          
           if(!pauseInterval.current) {
             pauseInterval.current = setInterval(() => {
@@ -126,7 +127,7 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
           clearInterval(interval.current);
           interval.current = undefined;
         } else {
-          setPrimaryBtn('Пауза');
+          setPrimaryBtn('Pause');
          
           clearInterval(pauseInterval.current);
           pauseInterval.current = undefined;
@@ -143,7 +144,7 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
   function handleSecClick() {
     switch(timerState) {
       case 'Active':
-        if(secondaryBtn === 'Стоп') {
+        if(secondaryBtn === 'Stop') {
           dispatch(increaseStopCount());
           resetTimer();
         } else {
@@ -157,7 +158,7 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
         break;
       
       case 'Break': 
-        if(primaryBtn === 'Продолжить') {
+        if(primaryBtn === 'Resume') {
           clearInterval(pauseInterval.current);
           pauseInterval.current = undefined;
         } 
@@ -190,8 +191,8 @@ export function TimerControl({ id, amount, started, timerState, taskList }: ITim
 
   return (
     <div className='timerControl'>
-        <button className='primaryBtn' onClick={handlePrimeClick}> { primaryBtn} </button>
-        <button className={`secondaryBtn ${timerState}`} onClick={handleSecClick}> {secondaryBtn} </button>
+        <button className='primaryBtn' onClick={handlePrimeClick}> { formatMessage(primaryBtn) } </button>
+        <button className={`secondaryBtn ${timerState}`} onClick={handleSecClick}> { formatMessage(secondaryBtn) } </button>
         <button className={`incBtn ${timerState}`} onClick={handleIncClick}></button>
 
         {createPortal ((
